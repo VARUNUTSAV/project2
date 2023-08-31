@@ -1,6 +1,8 @@
 package com.Varun.project2.controller;
 
 import com.Varun.project2.Service.AuthorBookService;
+import com.Varun.project2.Service.AuthorService;
+import com.Varun.project2.Service.BookService;
 import com.Varun.project2.model.author;
 import com.Varun.project2.model.book;
 import com.Varun.project2.repository.AuthorRepository;
@@ -20,10 +22,10 @@ import java.util.List;
 public class Controller {
 
     @Autowired
-    BookRepository bookRepository;
+    BookService bookService;
 
     @Autowired
-    AuthorRepository authorRepository;
+    AuthorService authorService;
 
     @Autowired
     AuthorBookService authorBookService;
@@ -36,32 +38,32 @@ public class Controller {
 
     @GetMapping("/allBooks")
     @CrossOrigin
-    public List<book> getAllBooks(){ return bookRepository.findAll(); }
+    public List<book> getAllBooks(){ return bookService.getAllBooks(); }
 
     @GetMapping("/books/genre")
     @CrossOrigin
     public List<book> searchByGenre(@RequestParam String genre){
-        return bookRepository.findByGenre(genre);
+        return bookService.searchByGenre(genre);
     }
 
     @GetMapping("/books/genre/copiesAvailable")
     @CrossOrigin
     public List<book> searchByGenreAndCopies(@RequestParam String genre, @RequestParam int copies){
-        return bookRepository.findByGenreAndCopies(genre, copies);
+        return bookService.searchByGenreAndCopies(genre, copies);
     }
 
     @PostMapping("/post/book")
     @CrossOrigin
-    public book addBook(@RequestBody @Validated book Book){return bookRepository.save(Book);}
+    public book addBook(@RequestBody @Validated book Book){return bookService.addBook(Book); }
 
     @PostMapping("/post/author")
     @CrossOrigin
-    public author addAuthor(@RequestBody @Validated author Author){ return authorRepository.save(Author);}
+    public author addAuthor(@RequestBody @Validated author Author){ return authorService.addAuthor(Author);}
 
     @GetMapping("author/by-name-regex")
     @CrossOrigin
     public List<author> getAuthorsByNameRegex(@RequestParam String nameRegex) {
-        return authorRepository.findByNameRegex(nameRegex);
+        return authorService.getAuthorsByNameRegex(nameRegex);
     }
 
     @GetMapping("/api/books/by-authors")
