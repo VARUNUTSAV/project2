@@ -3,12 +3,20 @@ package com.Varun.project2.model;
 import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 
 @Document(collection = "Author")
 public class Address {
+    @NotNull
+    @NotBlank
     private String hno;
+    @NotNull
+    @NotBlank
     private String city;
+    @NotNull
+    @NotBlank
     private String state;
 
     public Address(){

@@ -1,16 +1,24 @@
 package com.Varun.project2.model;
 
 import com.mongodb.lang.NonNull;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 
 @Document(collection = "Author")
 public class author {
-    @NonNull
+    @Id
+    @NotNull
     private int id;
+    @NotNull
+    @NotBlank
     private String name;
+    @NotNull
+    @NotBlank
     private Address address;
 
     public author(){

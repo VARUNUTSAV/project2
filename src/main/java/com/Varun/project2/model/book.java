@@ -1,15 +1,23 @@
 package com.Varun.project2.model;
 
 import com.mongodb.lang.NonNull;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Document(collection = "Book")
 public class book {
-    @NonNull
+    @Id
+    @NotNull
     private int id;
+    @NotNull
     private int copies;
-    @NonNull
+    @NotNull
     private int authorId;
+    @NotNull
+    @NotBlank
     private String genre;
 
     public book(){
