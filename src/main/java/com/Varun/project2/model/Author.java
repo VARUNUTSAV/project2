@@ -1,16 +1,13 @@
 package com.Varun.project2.model;
 
-import com.mongodb.lang.NonNull;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Arrays;
 
 @Document(collection = "Author")
-public class author {
+public class Author {
     @Id
     @NotNull
     private int id;
@@ -21,7 +18,7 @@ public class author {
     @NotBlank
     private Address address;
 
-    public author(){
+    public Author(){
     }
     public int getId(){ return id; }
     public void setId(int id){ this.id = id; }
