@@ -1,7 +1,7 @@
 package com.Varun.project2.Service;
 
-import com.Varun.project2.model.Author;
-import com.Varun.project2.model.Book;
+import com.Varun.project2.model.author;
+import com.Varun.project2.model.book;
 import com.Varun.project2.repository.AuthorRepository;
 import com.Varun.project2.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class AuthorBookService {
     @Autowired
     BookRepository bookRepository;
 
-    public List<Book> getBooksByAuthor(String text){
-        Author a = authorRepository.findByName(text);
+    public List<book> getBooksByAuthor(String text){
+        author a = authorRepository.findByName(text);
         int id = a.getId();
 
         return bookRepository.findByAuthorId(id);

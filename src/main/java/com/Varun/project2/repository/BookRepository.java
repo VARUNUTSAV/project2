@@ -1,12 +1,12 @@
 package com.Varun.project2.repository;
-import com.Varun.project2.model.Book;
+import com.Varun.project2.model.book;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface BookRepository extends MongoRepository<Book, String>{
-    public List<Book> findByGenre(String genre);
-    public List<Book> findByGenreAndCopiesGreaterThan(String genre, int copiesAvailable);
-    public List<Book> findByAuthorId(int id);
+public interface BookRepository extends MongoRepository<book, Integer>{
+    public List<book> findByGenre(String genre);
+    public List<book> findByGenreAndCopiesGreaterThan(String genre, int copiesAvailable);
+    public List<book> findByAuthorId(int id);
 }

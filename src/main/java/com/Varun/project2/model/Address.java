@@ -19,7 +19,10 @@ public class Address {
     @NotBlank
     private String state;
 
-    public Address(){
+    public Address(String hno, String city, String state){
+        this.hno=hno;
+        this.city=city;
+        this.state=state;
     }
 
     public String getHno(){ return hno; }
@@ -29,12 +32,12 @@ public class Address {
     public String getState(){ return state; }
     public void setState(String state){ this.state = state; }
 
-    @Override
-    public String toString() {
-        return "Address{" +
-                "hno='" + hno + '\'' +
-                ", city='" + city + '\'' +
-                ", state=" + state +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Address{" +
+//                "hno='" + hno + '\'' +
+//                ", city='" + city + '\'' +
+//                ", state=" + state +
+//                '}';
+//    }
 }
